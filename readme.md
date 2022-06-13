@@ -2,7 +2,59 @@
 ## Overview
 - The Lending Market is a Compound fork with modified governance. 
 
-## Testing:
+## Modifications to Compound
+- Removed Comp Token.
+- Removed Comp token references in GovernorBravo and Comptroller.
+- Dripping of Wrapped-Canto (ERC-20 version of native token Canto) to Suppliers of Lending. Market instead of Comp token.
+- Governance Modifications
+- Created custom Unigov Interface with Proposal struct and function that takes in a proposal ID and returns the correctly mapped Proposal struct.
+
+```
+interface UnigovInterface{
+    struct Proposal {
+        // @notice Unique id for looking up a proposal
+        uint id;
+        string title;
+        
+        string desc;
+        // @notice the ordered list of target addresses for calls to be made
+        address[] targets;
+	
+        uint[] values;
+        // @notice The ordered list of function signatures to be called
+        string[] signatures;
+        // @notice The ordered list of calldata to be passed to each call
+        bytes[] calldatas;
+    }
+  function QueryProp(uint propId) external view returns(Proposal memory);
+}
+```
+
+- Modified Queue function to query a proposal from the Map Contract and call queueOrRevertInternal on the queried proposal to send to TimeLock.
+
+```
+function queue(uint proposalId) external {
+	    // address of map contract; used to query proposals from cosmos SDK
+        address mapContractAddress = 0x30E20d0A642ADB85Cb6E9da8fB9e3aadB0F593C0;
+        // attach to contract using interface defined above
+        UnigovInterface unigov = UnigovInterface(mapContractAddress);
+        
+        // call QueryProp method here
+        UnigovInterface.Proposal memory prop = unigov.QueryProp(proposalId);
+	
+        // TODO: need to look into definition of timelock delay - make sure it meets our requirements
+        uint eta = add256(block.timestamp, timelock.delay());
+        for (uint i = 0; i < prop.targets.length; i++) {
+            queueOrRevertInternal(prop.targets[i], prop.values[i], prop.signatures[i], prop.calldatas[i], eta);
+        }
+        emit ProposalQueued(proposalId, eta);
+    }
+```
+
+### Comptroller Modifications
+- Modified the grantCompInternal function to enable the transfer of any EIP20-Interface Token and removed reference to Comp() object.
+
+## Testing
 A full suite of unit tests using hardhat and saddle are provided for the lending Market.
 
 ### Saddle
