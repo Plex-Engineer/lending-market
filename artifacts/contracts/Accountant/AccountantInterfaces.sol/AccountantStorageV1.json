@@ -1,0 +1,121 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "AccountantStorageV1",
+  "sourceName": "contracts/Accountant/AccountantInterfaces.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "lendingMarketAddress",
+          "type": "address"
+        }
+      ],
+      "name": "AcctInit",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "err",
+          "type": "uint256"
+        }
+      ],
+      "name": "AcctSupplied",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "admin",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "cnote",
+      "outputs": [
+        {
+          "internalType": "contract CNote",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "comptroller",
+      "outputs": [
+        {
+          "internalType": "contract ComptrollerInterface",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "implementation",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "note",
+      "outputs": [
+        {
+          "internalType": "contract Note",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "treasury",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b5061011d806100206000396000f3fe6080604052348015600f57600080fd5b5060043610605a5760003560e01c806326d111f514605f5780635c60da1b14608d5780635fe3b56714609f57806361d027b31460b1578063b972aa051460c3578063f851a4401460d5575b600080fd5b6002546071906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b6001546071906001600160a01b031681565b6004546071906001600160a01b031681565b6005546071906001600160a01b031681565b6003546071906001600160a01b031681565b6000546071906001600160a01b03168156fea264697066735822122002bea75c8e267449c6f5c496014d2e235cfe39e65613dc408375bb8cf0bc4d8064736f6c634300080a0033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b5060043610605a5760003560e01c806326d111f514605f5780635c60da1b14608d5780635fe3b56714609f57806361d027b31460b1578063b972aa051460c3578063f851a4401460d5575b600080fd5b6002546071906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b6001546071906001600160a01b031681565b6004546071906001600160a01b031681565b6005546071906001600160a01b031681565b6003546071906001600160a01b031681565b6000546071906001600160a01b03168156fea264697066735822122002bea75c8e267449c6f5c496014d2e235cfe39e65613dc408375bb8cf0bc4d8064736f6c634300080a0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

@@ -1,0 +1,37 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "TreasuryDelegatorStorage",
+  "sourceName": "contracts/Treasury/TreasuryInterfaces.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "admin",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "implementation",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b5060ad8061001e6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80635c60da1b146037578063f851a440146065575b600080fd5b6001546049906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b6000546049906001600160a01b03168156fea26469706673582212207187652af1ac60a473bd7995677de3e5ec48a78ad99065389f7fec866f981e5a64736f6c634300080a0033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c80635c60da1b146037578063f851a440146065575b600080fd5b6001546049906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b6000546049906001600160a01b03168156fea26469706673582212207187652af1ac60a473bd7995677de3e5ec48a78ad99065389f7fec866f981e5a64736f6c634300080a0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
