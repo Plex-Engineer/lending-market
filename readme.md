@@ -1,4 +1,16 @@
 # Lending Market
+
+## Note on admin and delegation mechanics:
+- In all delegate contracts (AccountantDelegate, TreasuryDelegate, GovernorBravoDelegate, etc), the initialize function has the following require statement:
+
+    `require(msg.sender == admin);`
+
+- Since this is a Delegate contract, the Delegator (AccountantDelegator, TreasuryDelegator, etc) will be calling these functions via a delegatecall. 
+- During these calls, the admin is referring to the admin of the Delegator, which is stored in the Interface contract. 
+- Delegate contracts simply hold the execution logic, but the admin, implementation, and all other storage variables are that of the Delegator. 
+- These contracts are designed this way for future upgradeability. We can simply deploy a new Delegate contract and set it as the new implementation to add or remove functionality.
+- Setting a new Delegate implementation can be done through governance. 
+
 ## Overview
 - The Lending Market is a Compound fork with modified governance. 
 
